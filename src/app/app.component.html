@@ -1,0 +1,14 @@
+<app-navigation></app-navigation>
+<app-main></app-main>
+<app-footer></app-footer>
+<hr>
+<label for="">
+  <input [(ngModel)]="servername" type="text" class="form-control">
+</label>
+<p>{{servername}}</p>
+<button (click)="onClickButton()" class="btn btn-primary">Hello world</button>
+<p *ngIf="serverOnline; else offline" [ngStyle]="{backgroundColor: getColour()}">Server is online</p>
+<ng-template #offline>
+  <p [ngStyle]="{backgroundColor: getColour()}">Server is Offline</p>
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
